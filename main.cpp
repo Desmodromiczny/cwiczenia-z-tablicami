@@ -7,8 +7,8 @@ int znajdz_najwieksza_wartosc(int *tab, int ile);
 
 using namespace std;
 
-int main() {
-
+int main()
+{
     cout << "ile chcesz stworzyc elementow w tablicy?";
     int ile;
     cin >> ile;
