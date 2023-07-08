@@ -1,0 +1,3 @@
+C:/Users/thxxe/Desktop/siplusplus/cwiczenia z tablicami/cmake-build-debug/CMakeFiles/cwiczenia_z_tablicami.dir
+C:/Users/thxxe/Desktop/siplusplus/cwiczenia z tablicami/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/thxxe/Desktop/siplusplus/cwiczenia z tablicami/cmake-build-debug/CMakeFiles/rebuild_cache.dir
