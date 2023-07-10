@@ -3,6 +3,8 @@ void uzupelnij_tablice(int *tab, int ile);
 void wypisz_tablice(int *tab, int ile);
 int licz_sume_tablicy(int *tab, int ile);
 int znajdz_najwieksza_wartosc(int *tab, int ile);
+int* stworz_tablice(int ile);
+int *odwroc_tablice(int *tab, int ile);
 
 
 using namespace std;
@@ -12,14 +14,21 @@ int main()
     cout << "ile chcesz stworzyc elementow w tablicy?";
     int ile;
     cin >> ile;
-    //dynamiczna alokacja tablicy
-    int *tablica = new int[ile];
+    int * tablica = stworz_tablice(ile);
     uzupelnij_tablice(tablica, ile);
     wypisz_tablice(tablica, ile);
-    cout << "suma to " << licz_sume_tablicy(tablica, ile);
+    int* tablica2 = odwroc_tablice(tablica, ile);
+    cout << "tablica2 to:  " << tablica2 <<endl;
+
+    delete[] tablica2;
+    delete[] tablica;
     return 0;
 }
 
+int* stworz_tablice(int ile){
+    int * array = new int[ile];
+    return array;
+}
 
 void uzupelnij_tablice(int *tab, int ile)
 {
@@ -44,9 +53,23 @@ int licz_sume_tablicy(int *tab, int ile){
 }
 
 int znajdz_najwieksza_wartosc(int *tab, int ile){
-    int najwieksza_wartosc;
-    for(int i = 0; i>ile; i++){
-
+    int najwieksza_wartosc = 0;
+    int najw;
+    for(int i = 0; i<ile; i++){
+        if(tab[i] > najwieksza_wartosc){
+            najwieksza_wartosc = tab[i];
+        }
     }
     return najwieksza_wartosc;
 }
+
+int *odwroc_tablice(int *tab, int ile){
+    int temp = 0;
+    int new_array[ile];
+    for(int i = 0; i<ile; i++){
+        new_array[ile -i -1] = tab[i];
+        cout << "iteracja nr: " << i << "wartosc: " << new_array[i] <<endl;
+    }
+    return new_array;
+}
+
