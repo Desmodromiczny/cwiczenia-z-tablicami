@@ -4,7 +4,7 @@ void wypisz_tablice(int *tab, int ile);
 int licz_sume_tablicy(int *tab, int ile);
 int znajdz_najwieksza_wartosc(int *tab, int ile);
 int* stworz_tablice(int ile);
-int *odwroc_tablice(int *tab, int ile);
+int* odwroc_tablice(int *tab, int ile);
 
 
 using namespace std;
@@ -18,7 +18,7 @@ int main()
     uzupelnij_tablice(tablica, ile);
     wypisz_tablice(tablica, ile);
     int* tablica2 = odwroc_tablice(tablica, ile);
-    cout << "tablica2 to:  " << tablica2 <<endl;
+    wypisz_tablice(tablica2, ile);
 
     delete[] tablica2;
     delete[] tablica;
@@ -65,10 +65,9 @@ int znajdz_najwieksza_wartosc(int *tab, int ile){
 
 int *odwroc_tablice(int *tab, int ile){
     int temp = 0;
-    int new_array[ile];
+    int* new_array = new int[ile];
     for(int i = 0; i<ile; i++){
         new_array[ile -i -1] = tab[i];
-        cout << "iteracja nr: " << i << "wartosc: " << new_array[i] <<endl;
     }
     return new_array;
 }
