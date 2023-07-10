@@ -5,6 +5,7 @@ int licz_sume_tablicy(int *tab, int ile);
 int znajdz_najwieksza_wartosc(int *tab, int ile);
 int* stworz_tablice(int ile);
 int* odwroc_tablice(int *tab, int ile);
+bool palindrome(int *tab, int ile);
 
 
 using namespace std;
@@ -18,7 +19,8 @@ int main()
     uzupelnij_tablice(tablica, ile);
     wypisz_tablice(tablica, ile);
     int* tablica2 = odwroc_tablice(tablica, ile);
-    wypisz_tablice(tablica2, ile);
+    //wypisz_tablice(tablica2, ile);
+    cout << palindrome(tablica, ile);
 
     delete[] tablica2;
     delete[] tablica;
@@ -72,3 +74,17 @@ int *odwroc_tablice(int *tab, int ile){
     return new_array;
 }
 
+bool palindrome(int *tab, int ile){
+    int* temp = new int[ile];
+    for(int i = 0; i<ile; i++){
+        if(tab[i] == tab[ile-i-1])
+        {
+            continue;
+            if(i=ile){
+                return true;
+            }
+        }
+        else return false;
+    }
+
+}
