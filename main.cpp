@@ -165,8 +165,9 @@ int liczby_pierwsze(int ilosc_liczb){
     {
         tablica[i] = i;
     }
-    for(int k = 0; k < ilosc_liczb; k++){
-        if(tablica[k] % 3 )
+    for(int k = 2; k < ilosc_liczb; k++){
+        if(tablica[k] % 2 != 0)
+
     }
     delete[] tablica;
 
