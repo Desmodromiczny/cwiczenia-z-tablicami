@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <string>
 
 
 void uzupelnij_tablice(int *tab, int ile);
@@ -12,17 +12,16 @@ int* odwroc_tablice(int *tab, int ile);
 bool palindrome(int *tab, int ile);
 int NWD(int liczba1, int liczba2);
 std::vector<int> zamiana_binarna(int liczba);
+int liczby_pierwsze(int ilosc_liczb);
+std::string odwroc_wyraz(std::string Tekst);
+double srednia_arytmetyczna(std::vector<double> tablica);
+
 
 using namespace std;
 
-vector<int> zamiana_binarna(int liczba){
-    vector<int> liczba_binarna;
-    while (liczba > 0){
-        liczba_binarna.push_back(liczba % 2);
-        liczba /= 2;
-    }
-    return liczba_binarna;
-}
+
+
+
 
 
 
@@ -50,8 +49,47 @@ int main()
 
     //NWD
     NWD(282, 78);
+
+    //liczby pierwsze
+    liczby_pierwsze(10);
+
+    //Odwrócenie wyrazu
+    string test = "Seba";
+    //TODO nie wyswietla sie
+    cout << odwroc_wyraz("test");
+
+    //srednia arytmetyczna
+    vector <double> do_sredniej = {10.0, 20.0, 30.0, 40.0};
+    cout << srednia_arytmetyczna(do_sredniej);
+
     return 0;
 }
+
+
+vector<int> zamiana_binarna(int liczba){
+    vector<int> liczba_binarna;
+    while (liczba > 0){
+        liczba_binarna.push_back(liczba % 2);
+        liczba /= 2;
+    }
+    return liczba_binarna;
+}
+
+
+string odwroc_wyraz(string Tekst)
+{
+    string Odwrocony = [] (string Tekst) -> string{
+        string backwards;
+        for(int k = 0 ; k < Tekst.length(); k++){
+            backwards[k] = Tekst[Tekst.length() - 1 - k];
+        }
+        return backwards;
+    }("Test");
+    return Odwrocony;
+}
+
+
+
 
 int* stworz_tablice(int ile){
     int * array = new int[ile];
@@ -72,6 +110,7 @@ void wypisz_tablice(int *tab, int ile)
     }
 }
 
+//funkcja ktora liczy sume cyfr lizby
 int licz_sume_tablicy(int *tab, int ile){
     int suma = 0;
     for(int i = 0; i<ile;i++){
@@ -149,32 +188,44 @@ int NWD(int liczba1, int liczba2){
                 cout << temp << endl;
             }
             if(temp == 0){
-                cout << "NWD = " << liczba2;
+                cout << "NWD = " << liczba2 <<endl;
             }
         }
         while (temp != 0);
     }
 }
 
-
 int liczby_pierwsze(int ilosc_liczb){
     //funkcja, która znajdzie wszystkie liczby pierwsze w zakresie od 2 do podanej przez uzytkownika
     // czyli liczba ktora jest > 1 i ma tylko dwa dzielniki: 1 i samą siebie
     int* tablica = new int[ilosc_liczb];
+    vector<int> tablica2;
+    vector<int> liczby_pierwsze;
     for(int i = 0; i < ilosc_liczb; i++)
     {
-        tablica[i] = i;
+        tablica2.push_back(i);
     }
     for(int k = 2; k < ilosc_liczb; k++){
-        if(tablica[k] % 2 != 0)
-
+        if(tablica2[k] % 2 != 0){
+         liczby_pierwsze.push_back(k);
+        }
+    }
+    cout << "liczby pierwsze to:" << endl;
+    for(int k : liczby_pierwsze){
+        cout << " " << k << endl;
     }
     delete[] tablica;
-
-
-
-
 }
+
+double srednia_arytmetyczna(vector<double> tablica){
+    double temp{0};
+    for(auto k : tablica){
+        temp += k;
+    }
+    return (temp/tablica.size());
+}
+
+
 
 
 
